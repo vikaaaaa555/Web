@@ -1,3 +1,0 @@
-git add 1.txt
-clear
-w
