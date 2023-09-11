@@ -12,10 +12,11 @@
                 <div class="alert alert-warning">
                     <h3>{{ el.name }}</h3>
                     <p>{{ el.description }}</p>
-                    <p class="link-read-membership"><a href="{{el.get_absolute_url}}";
-                                                       style="background: #1b1b1b;
-                                                       color: white;
-                                                       width: 5%">Buy</a></p>
+                    <p class="link-read-membership">
+                        {% if user.is_authenticated %}
+                            <a class="buy-membership" href="{{el.get_absolute_url}}">Buy</a>
+                        {% endif %}
+                    </p>
                 </div>
             {% endfor %}
         {% else %}
