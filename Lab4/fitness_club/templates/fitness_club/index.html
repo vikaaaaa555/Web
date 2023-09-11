@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="features">
-        <h1>Home</h1>
+        <h1 style="font-family:'Palatino Linotype', serif">Home</h1>
         {% if groups %}
             {% for el in groups %}
                 <div class="alert alert-warning">
@@ -17,11 +17,5 @@
         {% else %}
             <p>Groups not found</p>
         {% endif %}
-        <div class="alert alert-info">
-            <h3>Fact about cats:</h3>
-            <p>{{ random_fact.text }}</p>
-            <p>Source: <a href="{{ random_fact.source }}">{{ random_fact.source }}</a></p>
-            <p>Created At: {{ random_fact.createdAt }}</p>
-        </div>
     </div>
 {% endblock %}
