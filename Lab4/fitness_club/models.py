@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.db import models
 from django.urls import reverse
 
@@ -19,11 +20,18 @@ class Group(models.Model):
 
 
 class Client(models.Model):
+#    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Visitor')
     name = models.CharField(max_length=30)
     age = models.PositiveIntegerField(default=1)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     groups = models.ManyToManyField(Group)
+    # rating = models.IntegerField(validators=[
+    #         MinValueValidator(0, message='The rating should be no less 0.'),
+    #         MaxValueValidator(5, message='The rating should be no more 5.'),
+    #     ], verbose_name='Raiting')
+    # feedback = models.TextField(blank=True, null=True, verbose_name='Review')
+    # time_create = models.DateTimeField(auto_now_add=True, verbose_name='Time of creation')
 
     class Meta:
         verbose_name = "Client"
@@ -33,10 +41,18 @@ class Client(models.Model):
         return f"Client {self.id}"
 
 
+phone_number_validator = RegexValidator(
+    regex=r'^\+375\(\d{2}\)\d{3}-\d{2}-\d{2}$',
+    message='Phone number should be in the format: +375(xx)xxx-xx-xx'
+)
+
 class Instructor(models.Model):
     name = models.CharField(max_length=30)
     specialization = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d', default='')
+    phone_number = models.CharField(max_length=17, verbose_name='Phone number', blank=True, null=True,
+                                    validators=[phone_number_validator])
+    email = models.EmailField(max_length=100, verbose_name='Email', blank=True, null=True)
+    photo = models.ImageField(upload_to='photos/instructors', default='')
 
     class Meta:
         verbose_name = "Instructor"
