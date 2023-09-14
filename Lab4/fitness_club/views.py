@@ -28,7 +28,7 @@ class InstructorsView(ListView):
     context_object_name = 'instructor'
     ordering = ('name',)
 
-def services(request):
+def luck(request):
     response = requests.get('https://dog.ceo/api/breeds/image/random')
     image_url = response.json()['message']
 
@@ -40,7 +40,7 @@ def services(request):
         'image_url': image_url,
         'random_fact': random_fact
     }
-    return render(request, 'fitness_club/services.html',  context)
+    return render(request, 'fitness_club/luck.html', context)
 
 # class ShoppingCardView(DetailView):
 #     model = Membership
@@ -81,3 +81,14 @@ class SignUp(CreateView):
 def admin_view(request):
     return render(request, 'admin.html')
 
+def inform(request):
+    return render(request, 'fitness_club/inform.html')
+
+def about_us(request):
+    return render(request, 'fitness_club/about_us.html')
+
+def news(request):
+    return render(request, 'fitness_club/news.html')
+
+def privacy_politic(request):
+    return render(request, 'fitness_club/privacy_politic.html')
