@@ -10,6 +10,8 @@ aside {
     height: 100vh;
     padding: 2.5%;
     border-right: 5px solid #303030;
+    position: fixed;
+    overflow-y: auto;
 }
 
 aside ul {list-style: none}
@@ -21,7 +23,7 @@ aside ul li, a {
     text-decoration: none;
 }
 
-aside ul li:hover, aside ul a:hover {
+aside ul li:hover, aside ul a:hover, aside div header a:hover, div h2 a:hover, main footer a:hover {
     color: white;
     text-decoration: none;
     transform: scale(1.05);
@@ -29,8 +31,9 @@ aside ul li:hover, aside ul a:hover {
 
 main .features {
     float: left;
-    color: white;
-    margin-top: 60px;
+    color: plum;
+    margin-top: 10px;
+    margin-left: 350px;
     text-align: center;
     width: 75%;
 }
@@ -39,22 +42,106 @@ main .features h1 {font-size: 50px}
 main .features p {margin: 20px auto; max-width: 1000px}
 
 .alert-warning {
-    background: plum;
+    padding: 30px;
+    font-family: "Palatino Linotype", serif;
+    border-color: #5A916A;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    background: #903490;
     float: left;
     clear: both;
     width: 600px;
-    margin: 20px 24%;
+    margin: 15px 24%;
     text-align: left;
 }
 
 .alert-info {
     background: #5A916A;
+    border-color: #903490;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
     color: plum;
     float: left;
     clear: both;
-    width: 100%;
-    margin: 20px;
+    width: 600px;
+    margin: 15px 20%;
     text-align: left;
+    padding: 30px;
+    font-family: "Palatino Linotype", serif;
 }
 
+.user-selection {
+    font-family: "Palatino Linotype", serif;
+    font-weight: bold;
+    border-style: dashed;
+    border-color: #5A916A;
+    border-radius: 10px;
+    border-width: 2px;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
+.user-header {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.buy-membership {
+    background: #1b1b1b;
+    color: white;
+    width: 5%;
+    border-radius: 2px;
+}
+
+#menu {
+    font-family:'Palatino Linotype', serif;
+    font-weight: bold;
+}
+
+.img-container {
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    justify-content: center;
+}
+
+footer nav a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer {
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.news {
+    background: #202020;
+    padding: 30px;
+    text-align: left;
+    font-family: "Palatino Linotype", serif;
+}
+
+div h2 a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.history {
+    margin-top: 30px;
+    text-align: left;
+    background: #202020;
+    padding: 30px;
+    font-family: "Palatino Linotype", serif;
+}
+
+main details {
+    margin-top: 30px;
+}
+
+main details summary {
+    font-family: 'Palatino Linotype', serif;
+}
