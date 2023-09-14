@@ -11,11 +11,11 @@
 <body>
 
 <h1>Hello, {{ user.username|default:'Guest' }}</h1>
-<p> Welcome to the our Fitness Club </p>
+<p>Welcome to the Barbie Fitness</p>
 <div>
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Logout</a><br>
-        <a href="{% url 'fitness_club_home' %}">Go to the Fitness Club</a><br>
+        <a href="{% url 'inform' %}">Go to the Fitness Club</a><br>
 
         {% if user.is_superuser %}
             <a href="{% url 'admin' %}">Administrate</a>
@@ -23,7 +23,7 @@
 
     {% else %}
         <a href="{% url 'signup' %}">Sign Up</a><br>
-        <a href="{% url 'fitness_club_home' %}">Look at</a><br>
+        <a href="{% url 'inform' %}">Look at</a><br>
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
 </div>

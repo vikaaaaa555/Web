@@ -1,20 +1,19 @@
 {% extends 'fitness_club/layout.html' %}
 
 {% block title %}
-    Service
+    Have a good day!
 {% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>Service</h1>
-        <div class="alert alert-info">
+        <h1>Have a good day!</h1>
+        <div style="text-align: center" class="alert alert-info">
             <img src="{{ image_url }}" alt="Such image doesn't exist :(" style="max-width: 500px">
         </div>
         <div class="alert alert-info">
-            <h3>Fact about cats:</h3>
-            <p>{{ random_fact.text }}</p>
-            <p>Source: <a href="{{ random_fact.source }}">{{ random_fact.source }}</a></p>
-            <p>Created At: {{ random_fact.createdAt }}</p>
+            <h2><i><strong>Fact about cats:</strong></i></h2>
+            <h3>{{ random_fact.text }}</h3>
+            <h3>Created At: {{ random_fact.createdAt }}</h3>
         </div>
     </div>
 {% endblock %}

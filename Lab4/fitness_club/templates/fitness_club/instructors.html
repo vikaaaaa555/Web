@@ -9,12 +9,14 @@
         <h1>Instructors</h1>
         {% if instructor %}
             {% for el in instructor %}
-                {% if el.photo %}
-                    <p><img class='img-article-left thumb' src="{{ el.photo.url }}"></p>
-                {% endif %}
                 <div class="alert alert-warning">
-                    <h3>{{ el.name }}</h3>
-                    <p>{{ el.specialization }}</p>
+                    <h2>{{ el.name }}</h2>
+                    <h4>{{ el.specialization }}</h4>
+                    <h4>{{ el.phone_number }}</h4>
+                    <h4>{{ el.email }}</h4>
+                    {% if el.photo %}
+                        <p><img class='img-article-left thumb' src="{{ el.photo.url }}"></p>
+                    {% endif %}
                 </div>
             {% endfor %}
         {% else %}

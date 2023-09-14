@@ -6,8 +6,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="features">
+    <article class="features">
         <h1>Fitness Club</h1>
-        <p><img src="{% static 'fitness_club/photos/2023/09/12/panov_vladislav(1).png' %}" alt="Fitness"></p>
-    </div>
+        <p><img src="{% static 'fitness_club/media/photos/pictures/ad.png' %}" alt="Fitness"></p>
+        <article class="news">
+            <h2>Exciting News from Barbie Fitness!</h2>
+            <h4>
+                We are thrilled to introduce our newest trainer, Tyrion Lannister! Tyrion is a highly skilled wrestling expert with years of experience.
+                Whether you're looking to improve your wrestling skills or enhance your overall fitness, Tyrion has you covered. Don't miss this opportunity to train with a master athlete!
+                Spaces are limited, so hurry and sign up for Tyrion's classes today.
+            </h4>
+        </article>
+        <footer>
+            <p style="font-family: 'Palatino Linotype', serif"><h3><strong>Our partners</strong></h3></p>
+            <nav>
+                <a href="https://www.mcdonalds.com/gb/en-gb.html" target="_blank"><img src="{% static 'fitness_club/media/photos/pictures/mcd.png' %}"></a>
+                <a href="https://www.adidas.co.uk/" target="_blank"><img src="{% static 'fitness_club/media/photos/pictures/adidas.png' %}"></a>
+                <a href="https://www.stoneisland.com/gb" target="_blank"><img src="{% static 'fitness_club/media/photos/pictures/stonic.png' %}"></a>
+            </nav>
+        </footer>
+    </article>
 {% endblock %}

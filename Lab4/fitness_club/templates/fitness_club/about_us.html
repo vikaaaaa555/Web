@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'fitness_club/layout.html' %}
+{% load static %}
+
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+    <main class="features">
+        <h1>About Us</h1>
+        <p><img src="{% static 'fitness_club/media/photos/pictures/barbie1.png' %}"></p>
+        <article class="news">
+            At the Barbie Fitness, we are dedicated to helping you achieve your health and fitness goals.<br>
+            We provide a welcoming and motivating environment where you can embark on a journey to a healthier, happier you.
+        </article>
+        <iframe style="margin-top: 50px" width="944" height="531" src="https://www.youtube.com/embed/IT94xC35u6k" title="20 min Fat Burning Workout for TOTAL BEGINNERS (Achievable, No Equipment)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <section class="history">
+            <h1>Barbie Fitness History</h1>
+            <ul>
+                <li>
+                    <h2>2004: Founding</h2>
+                    <p>Barbie Fitness was founded in 2004 with a mission to promote health and wellness in the community. We started with a small facility and a handful of dedicated members.</p>
+                </li>
+                <li>
+                    <h2>2010: Expansion</h2>
+                    <p>In 2010, we expanded our club and introduced a wider range of fitness programs. This year marked significant growth in our membership and the introduction of new trainers.</p>
+                </li>
+                <li>
+                    <h2>2022: State-of-the-Art Equipment</h2>
+                    <p>By 2022, we had invested in state-of-the-art fitness equipment, making us one of the top fitness clubs in the region. Our commitment to providing the best facilities for our members remained unwavering.</p>
+                </li>
+            </ul>
+        </section>
+    <footer>
+        <p>Visit us!: Minsk, Petrusia Brouki Street, 4A </p>
+        <p>For all inquiries, please call the number: +375(29)000-00-00</p>
+        <p><a href="{% static 'fitness_club/media/doc/sertificate.pdf' %}" download>Certificate of quality of services</a></p>
+    </footer>
+    </main>
+{% endblock %}
