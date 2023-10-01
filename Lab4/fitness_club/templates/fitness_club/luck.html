@@ -16,4 +16,45 @@
             <h3>Created At: {{ random_fact.createdAt }}</h3>
         </div>
     </div>
+
+    <h2>Parallelogram CSS</h2>
+    <div class="parallelogram"></div>
+
+    <div class="features">
+        <h3>Listning:</h3>
+        <code>
+            <pre>
+                class FeedbackForm(forms.ModelForm):
+                    def __init__(self, *args, **kwargs):
+                        super().__init__(*args, **kwargs)
+                        self.fields['name'].empty_label = 'Name not entered'
+                        self.fields['last_name'].empty_label = 'Last name not entered'
+                        self.fields['rating'].empty_label = "You didn't rate"
+                        self.fields['feedback'].empty_label = "You haven't left a review"
+            </pre>
+        </code><hr/>
+
+        <h3>The current date and time is: {% now "Y-m-d H:i:s" %}</h3><hr/>
+
+        <h3><abbr title="National Basketball Association">NBA</abbr></h3><hr/>
+
+        <blockquote>
+            <p>"I've failed over and over and over again in my life. And that is why I succeed."</p>
+            <footer>— Michael Jordan</footer>
+        </blockquote><hr/>
+
+        <div class="verse">On the track, sprinters burst into a run,
+                            Each step takes them closer to the finish line, the ultimate fun.
+                            With sweat on their brows and fire in their soul,
+                            In the world of sports, they reach their ultimate goal.
+        </div><hr/>
+
+        <label for="pages">Choose a page:</label>
+            <select id="pages" name="pages">
+                <option value="about_us">About us</option>
+                <option value="home">Home</option>
+                <option value="faq">FAQ</option>
+            </select><br>
+    </div>
+
 {% endblock %}

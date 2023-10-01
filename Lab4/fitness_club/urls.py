@@ -5,6 +5,7 @@ from django.urls import path
 
 
 from . import views
+from .views import FeedbackView, FeedbackForm
 
 urlpatterns = [
     path('fitness_club_home', views.FitnessClubHome.as_view(), name='fitness_club_home'),
@@ -15,10 +16,16 @@ urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
     path('shopping_cart/<int:membership_id>/', views.shopping_cart, name='shopping_cart'),
     path('admin/', views.admin_view, name='admin'),
-    path('inform', views.inform, name='inform'),
+    path('inform', views.Inform.as_view(), name='inform'),
     path('about_us', views.about_us, name='about_us'),
-    path('news', views.news, name='news'),
+    path('news', views.NewsView.as_view(), name='news'),
+    path('news_view/<int:news_id>/', views.news_view, name='news_view'),
     path('privacy_politic', views.privacy_politic, name='privacy_politic'),
+    path('coupons', views.CouponsView.as_view(), name='coupons'),
+    path('faq', views.FAQView.as_view(), name='faq'),
+    path('vocation', views.VocationView.as_view(), name='vocation'),
+    path('feedback_view/', FeedbackView.as_view(), name='feedback_view'),
+    path('feedback_form/', FeedbackForm.as_view(), name='feedback_form'),
 ]
 
 if settings.DEBUG:

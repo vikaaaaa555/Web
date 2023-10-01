@@ -1,0 +1,17 @@
+{% extends 'fitness_club/layout.html' %}
+{% block content %}
+<h1>{{ title }}</h1>
+<form action="{% url 'feedback_form' %}" method="post">
+    {% csrf_token %}
+    <div
+         class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+        <p>
+            <label style="color:plum; margin-top: 10px; margin-left: 650px; text-align: center; width: 75%;" class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>
+            {{ f }}
+        </p>
+        <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button style="color:plum; margin-top: 10px; margin-left: 650px; text-align: right; width: 30%;" type="submit">Send feedback</button>
+</form>
+{% endblock %}

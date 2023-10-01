@@ -1,9 +1,9 @@
 from datetime import datetime
-
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.db import models
 from django.urls import reverse
+
 
 class Group(models.Model):
     name = models.CharField(max_length=30)
@@ -20,18 +20,11 @@ class Group(models.Model):
 
 
 class Client(models.Model):
-#    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Visitor')
     name = models.CharField(max_length=30)
     age = models.PositiveIntegerField(default=1)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     groups = models.ManyToManyField(Group)
-    # rating = models.IntegerField(validators=[
-    #         MinValueValidator(0, message='The rating should be no less 0.'),
-    #         MaxValueValidator(5, message='The rating should be no more 5.'),
-    #     ], verbose_name='Raiting')
-    # feedback = models.TextField(blank=True, null=True, verbose_name='Review')
-    # time_create = models.DateTimeField(auto_now_add=True, verbose_name='Time of creation')
 
     class Meta:
         verbose_name = "Client"
@@ -45,6 +38,7 @@ phone_number_validator = RegexValidator(
     regex=r'^\+375\(\d{2}\)\d{3}-\d{2}-\d{2}$',
     message='Phone number should be in the format: +375(xx)xxx-xx-xx'
 )
+
 
 class Instructor(models.Model):
     name = models.CharField(max_length=30)
@@ -104,3 +98,70 @@ class Membership(models.Model):
 
     def get_absolute_url(self):
         return reverse('shopping_cart', kwargs={'membership_id': self.pk})
+
+
+class Feedback(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, verbose_name='First name', null='True')
+    last_name = models.CharField(max_length=100, verbose_name='Last name', null='True')
+    rating = models.PositiveIntegerField(validators=[
+             MinValueValidator(0, message='The rating should be no less 0.'),
+             MaxValueValidator(5, message='The rating should be no more 5.'), ])
+    feedback = models.TextField(blank=True, null=True, verbose_name='Feedback')
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Creation time', null='True')
+
+
+class Coupon(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.TextField(default='')
+    archive = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = 'Coupon'
+        verbose_name_plural = 'Coupons'
+
+    def __str__(self):
+        return self.name
+
+
+class News(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.TextField(default='')
+    photo = models.ImageField(upload_to='photos/news', default='')
+
+    class Meta:
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
+
+
+    def __str__(self):
+        return f"News {self.id}"
+
+    def get_absolute_url(self):
+        return reverse('news_view', kwargs={'news_id': self.pk})
+
+
+
+class Vocation(models.Model):
+    vocation = models.CharField(max_length=30)
+    description = models.TextField(default='')
+
+    class Meta:
+        verbose_name = 'Vocation'
+        verbose_name_plural = 'Vocations'
+
+    def __str__(self):
+        return self.vocation
+
+
+class FAQ(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(default='')
+
+    class Meta:
+        verbose_name = 'FAQ'
+        verbose_name_plural = 'FAQs'
+
+    def __str__(self):
+        return self.name
+

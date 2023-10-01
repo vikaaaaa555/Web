@@ -8,40 +8,19 @@
 {% block content %}
     <main class="features">
         <h1>News</h1>
-
+        {% for n in news %}
         <details>
-            <summary><h2>New Class Schedule</h2></summary>
+            <summary><h2>{{ n.name }}</h2></summary>
             <article class="news">
                 <p>
-                    <p><img src="{% static 'fitness_club/media/photos/pictures/istockphoto-674806292-612x612.jpg' %}"></p>
-                    We have revamped our class schedule to offer even more variety and flexibility for our members.
-                    Whether you prefer cardio, strength training, or yoga, we have a class for you.
-                    Check out our updated schedule on our website.
+                    {% if n.photo %}
+                        <p><img class='img-article-left thumb' src="{{ n.photo.url }}"></p>
+                    {% endif %}
+                    {{ n.description }}
                 </p>
+                <p><a href="{{ n.get_absolute_url }}" target="_blank">Read all</a></p>
             </article>
         </details>
-
-        <details>
-            <summary><h2>State-of-the-Art Equipment</h2></summary>
-            <article class="news">
-                <p>
-                    <p><img src="{% static 'fitness_club/media/photos/pictures/istockphoto-674806292-612x612.jpg' %}"></p>
-                    We have invested in brand new, state-of-the-art fitness equipment to enhance your workout experience.
-                    Our modern machines are designed to help you reach your fitness goals more efficiently.
-                </p>
-            </article>
-        </details>
-
-        <details>
-            <summary><h2>Personal Training Services</h2></summary>
-            <article class="news">
-                <p>
-                    <p><img src="{% static 'fitness_club/media/photos/pictures/istockphoto-674806292-612x612.jpg' %}"></p>
-                    Introducing personalized training sessions with our certified trainers.
-                    Get expert guidance and tailor-made workout plans to achieve your fitness aspirations.
-                    Contact our front desk to schedule a session.
-                </p>
-            </article>
-        </details>
+        {% endfor %}
     </main>
 {% endblock %}

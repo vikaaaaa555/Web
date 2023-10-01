@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="{% static 'fitness_club/css/styles.css' %}">
     <link rel="icon" href="{% static 'fitness_club/media/photos/pictures/barbie_icon.png' %}" type="image/x-icon">
 </head>
-<body>
+<body translate="yes">
+    <nav class="main_nav">
+        <a href="{% url 'inform' %}"><div><i class="fas fa-home"></i> Home</div></a>
+        <a href="{% url 'about_us' %}"><div><i class="fa-solid fa-info"></i> About Us</div></a>
+        <a href="{% url 'news' %}"><div><i class="fa-solid fa-newspaper"></i> News</div></a>
+    </nav>
     <aside>
         <h2>Barbie Fitness</h2>
         <div class="user-selection">
@@ -27,14 +32,21 @@
         </div>
         <h3 style="font-family:'Palatino Linotype', serif">Menu</h3>
         <ul id="menu">
-            <a href="{% url 'inform' %}"><li><i class="fas fa-home"></i> Home</li></a>
-            <a href="{% url 'about_us' %}"><li><i class="fa-solid fa-info"></i> About Us</li></a>
-            <a href="{% url 'news' %}"><li><i class="fa-solid fa-newspaper"></i> News</li></a>
-            <a href="{% url 'fitness_club_home' %}"><li><i class="fa-solid fa-dumbbell"></i> Training</li></a>
-            <a href="{% url 'instructors' %}"><li><i class="fas fa-walking"></i> Instructors</li></a>
-            <a href="{% url 'gym_memberships' %}"><li><i class="fas fa-credit-card"></i> Memberships</li></a>
-            <a href="{% url 'privacy_politic' %}"><li><i class="fa-solid fa-paperclip"></i> Privacy Politic</li></a>
-            <a href="{% url 'luck' %}"><li><i class="fa-solid fa-gift"></i> Surprise</li></a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'fitness_club_home' %}"><li><i class="fa-solid fa-dumbbell"></i> Training</li></a>
+                <a href="{% url 'instructors' %}"><li><i class="fas fa-walking"></i> Instructors</li></a>
+                <a href="{% url 'gym_memberships' %}"><li><i class="fas fa-credit-card"></i> Memberships</li></a>
+                <a href="{% url 'coupons' %}"><li><i class="fa-solid fa-ticket"></i> Coupons</li></a>
+                <a href="{% url 'faq' %}"><li><i class="fa-solid fa-question"></i> FAQ</li></a>
+                <a href="{% url 'feedback_view' %}"><li><i class="fa-solid fa-spell-check"></i> Feedback</li></a>
+                <a href="{% url 'vocation' %}"><li><i class="fa-solid fa-person"></i> Vocations</li></a>
+                <a href="{% url 'privacy_politic' %}"><li><i class="fa-solid fa-paperclip"></i> Privacy Politic</li></a>
+                <a href="{% url 'luck' %}"><li><i class="fa-solid fa-gift"></i> Surprise</li></a>
+            {% else %}
+                <a href="{% url 'fitness_club_home' %}"><li><i class="fa-solid fa-dumbbell"></i> Training</li></a>
+                <a href="{% url 'coupons' %}"><li><i class="fa-solid fa-ticket"></i> Coupons</li></a>
+                <a href="{% url 'vocation' %}"><li><i class="fa-solid fa-person"></i> Vocations</li></a>
+            {% endif %}
         </ul>
     </aside>
     <main>

@@ -1,0 +1,22 @@
+{% extends 'fitness_club/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Vocations
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    <table border="1">
+        <tr>
+        <th>Vocations</th>
+        <th>Description</th>
+        </tr>
+            {% for v in vocation %}
+                <tr>
+                    <td>{{ v.vocation }}</td>
+                    <td>{{ v.description }}</td>
+                </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'fitness_club/layout.html' %}
+{% block title %}
+    News Detail
+{% endblock %}
+{% block content %}
+    <div class="features">
+    <article class="news">
+        <h1>{{ pushcase.name }}</h1>
+        {% if pushcase.photo %}
+            <p><img class='img-article-left thumb' src="{{ pushcase.photo.url }}" alt="{{ pushcase.name }}"></p>
+        {% endif %}
+        <p>{{ pushcase.description }}</p>
+    </article>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'fitness_club/layout.html' %}
+{% load static %}
+
+{% block title %}
+    FAQ
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    <h2>Frequently Asked Questions</h2>
+    <div class="features">
+        <dl class="news">
+            {% for f in faq %}
+                <details>
+                    <summary>{{ f.name }}</summary>
+                    <p>{{ f.description }}</p>
+                </details>
+            {% endfor %}
+        </dl>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'fitness_club/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Coupon
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    <h2>Coupons</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in coupon %}
+                {% if not c.archive %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.description }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br><br>
+    <h2 style="color: plum; margin-left: 400px">Coupons in the Archive</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in coupon %}
+                {% if c.archive %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.description }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

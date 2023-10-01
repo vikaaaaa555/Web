@@ -112,6 +112,25 @@ footer nav a {
     margin-right: 10px;
 }
 
+.main_nav {
+    background-color: #202020;
+    padding: 10px 0;
+    text-align: left;
+    position: fixed; /* Закрепить меню вверху экрана */
+    top: 0; /* Расположить меню в самом верху экрана */
+    width: 100%; /* Занимать всю ширину экрана */
+    z-index: 1000; /* Убедитесь, что меню отображается выше других элементов */
+}
+
+.main_nav a {
+    display: inline-block;
+    color: plum;
+    text-decoration: none;
+    margin: 0 15px; /* Добавьте отступы между пунктами меню */
+}
+
+
+
 footer {
     margin-top: 70px;
     margin-bottom: 20px;
@@ -144,4 +163,26 @@ main details {
 
 main details summary {
     font-family: 'Palatino Linotype', serif;
+}
+
+table {
+    border-style: double;
+    border-color: #5A916A;
+    color: plum;
+    margin-left: 400px;
+}
+
+.parallelogram {
+	width: 100px;
+	height: 50px;
+	transform: skew(20deg);
+	background: #5A916A;
+    margin-left: 850px;
+}
+
+.verse {
+  display: table;
+  margin: 0 auto;
+  white-space: pre-line;
+  word-wrap: break-word;
 }

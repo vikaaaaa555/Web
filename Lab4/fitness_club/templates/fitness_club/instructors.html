@@ -6,7 +6,8 @@
 
 {% block content %}
     <div class="features">
-        <h1>Instructors</h1>
+        <article id="instr"><h1>Instructors</h1></article>
+
         {% if instructor %}
             {% for el in instructor %}
                 <div class="alert alert-warning">
@@ -22,5 +23,7 @@
         {% else %}
             <p>Specialization not found</p>
         {% endif %}
+
+        <a href="#instr">To begin</a><br>
     </div>
 {% endblock %}
