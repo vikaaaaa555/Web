@@ -26,6 +26,7 @@ urlpatterns = [
     path('vocation', views.VocationView.as_view(), name='vocation'),
     path('feedback_view/', FeedbackView.as_view(), name='feedback_view'),
     path('feedback_form/', FeedbackForm.as_view(), name='feedback_form'),
+    path('certificate/', views.certificate, name='certificate'),
 ]
 
 if settings.DEBUG:

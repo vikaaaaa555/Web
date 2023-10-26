@@ -1,5 +1,10 @@
 body {
-    background: #101010;
+    background-image: url('../media/photos/pictures/background.jpg');
+    background-color: #101010;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 aside {
@@ -15,7 +20,7 @@ aside {
 }
 
 aside ul {list-style: none}
-aside ul li, a {
+aside > ul > li, a {
     color: plum;
     display: block;
     margin-top: 10px;
@@ -23,10 +28,50 @@ aside ul li, a {
     text-decoration: none;
 }
 
-aside ul li:hover, aside ul a:hover, aside div header a:hover, div h2 a:hover, main footer a:hover {
+main details article p a:hover,
+aside ul li:hover,
+aside ul a:hover,
+aside div header a:hover,
+div h2 a:hover,
+main footer a:hover,
+nav a:hover,
+a:hover{
     color: white;
     text-decoration: none;
     transform: scale(1.05);
+}
+
+main details article p a:visited,
+aside ul li:visited,
+aside ul a:visited,
+aside div header a:visited,
+div h2 a:visited,
+main footer a:visited,
+nav a:visited,
+a:visited{
+    color: #5A916A;
+}
+
+main details article p a:active,
+aside ul li:active,
+aside ul a:active,
+aside div header a:active,
+div h2 a:active,
+main footer a:active,
+nav a:active,
+a:active{
+    color: deeppink !important;
+}
+
+main details article p a:focus,
+aside ul li:focus,
+aside ul a:focus,
+aside div header a:focus,
+div h2 a:focus,
+main footer a:focus,
+nav a:focus,
+a:focus{
+    color: palegreen;
 }
 
 main .features {
@@ -129,8 +174,6 @@ footer nav a {
     margin: 0 15px; /* Добавьте отступы между пунктами меню */
 }
 
-
-
 footer {
     margin-top: 70px;
     margin-bottom: 20px;
@@ -185,4 +228,118 @@ table {
   margin: 0 auto;
   white-space: pre-line;
   word-wrap: break-word;
+}
+
+[title="Barbie"] {
+    color: #5A916A;
+    font-family: sans-serif;
+}
+
+#certificate {
+    text-align: center;
+    position: relative;
+    margin: 10px 520px; /* Уменьшаем верхний отступ для внешнего контейнера */
+    background-color: white; /* Цвет фона под заголовком */
+    display: inline-block; /* Делаем контейнер блочным, но сохраняем его ширину по содержимому */
+}
+
+#certificate h6 {
+    position: relative;
+    z-index: 1; /* Помещаем текст над фоном */
+    margin: 20px; /* Уменьшаем отступы вокруг текста */
+}
+
+#certificate-text {
+    background: white;
+    border: 15px solid plum; /* Уменьшаем ширину рамки */
+    padding: 10px;
+    text-align: center;
+    border-image: repeating-linear-gradient(30deg, plum, #5A916A, plum 20px) 30; /* Уменьшаем ширину и высоту градиента */
+    max-width: 800px; /* Устанавливаем максимальную ширину для внутреннего блока */
+    margin-top: 0; /* Убираем верхний отступ за счет отрицательного margin-top */
+    margin-left: auto; /* Центрируем блок по горизонтали */
+    margin-right: auto;
+}
+
+.date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date span:not(:last-child) {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 10px;
+}
+
+.date span:last-child, #right {
+    text-align: right;
+    font-size: 10px;
+}
+
+.paragraph {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.underlined-text {
+    text-decoration: underline;
+}
+
+[title^="blue"] {
+    color: limegreen;
+}
+
+[title$="red"] {
+    color: hotpink;
+}
+
+#certificate h3,
+#certificate h4,
+#certificate h5,
+#certificate h6 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#certificate-text .spacer { /* Вставить пустой блок */
+    display: block;
+    margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 1300px) {
+    body {
+        background-color: palegreen;
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    body {
+        background-color: hotpink;
+    }
+}
+
+.round {
+    border-radius: 100px; /* Радиус скругления */
+    border: 3px solid #5A916A; /* Параметры рамки */
+    box-shadow: 0 0 10px white; /* Параметры тени */
+   }
+
+.border-block {
+    border: 15px solid;
+    padding: 20px;
+    border-image: url('../media/photos/pictures/border.jpg') 10% round;
+}
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#logo {
+    animation: rotateAnimation 5s infinite linear;
 }

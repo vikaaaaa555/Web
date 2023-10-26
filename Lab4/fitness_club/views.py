@@ -179,3 +179,8 @@ def news_view(request, news_id):
         'pushcase': pushcase
     }
     return render(request, 'fitness_club/news_view.html', context)
+
+def certificate(request):
+    return render(request, 'fitness_club/certificate.html')
+
+
