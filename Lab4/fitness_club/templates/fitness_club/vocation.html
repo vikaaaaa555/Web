@@ -6,17 +6,18 @@
 {% endblock %}
 
 {% block content %}
-    <br><br>
-    <table border="1">
-        <tr>
-        <th>Vocations</th>
-        <th>Description</th>
-        </tr>
+    <main class="features">
+        <h1>Vocations</h1>
+        <div class="alert-warning vacancy-list">
             {% for v in vocation %}
-                <tr>
-                    <td>{{ v.vocation }}</td>
-                    <td>{{ v.description }}</td>
-                </tr>
+                <div class="vacancy">
+                    <h2>{{ v.vocation }}</h2>
+                    {% autoescape on %}
+                        <p>{{ v.description|linebreaks }}</p>
+                    {% endautoescape %}
+                </div>
             {% endfor %}
-    </table>
+            <div class="clear"></div>
+        </div>
+    </main>
 {% endblock %}

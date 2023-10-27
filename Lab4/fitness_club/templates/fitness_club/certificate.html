@@ -1,30 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+{% block title %}
+    Certificate
+{% endblock %}
+
 <head>
     <meta charset="UTF-8">
+    <title>Certificate</title>
     <link rel="stylesheet" href="{% static 'fitness_club/css/styles.css' %}">
+    <link rel="icon" href="{% static 'fitness_club/media/photos/pictures/barbie_icon.png' %}" type="image/x-icon">
 </head>
 <body>
 
 <div id="certificate">
     <h6>СЕРТИФИКАТ О ЧЛЕНСТВЕ РСК (РЕЕСТР СПОРТИВНЫХ КЛУБОВ) АСОЦИАЦИИ СПОРТПОМОЩЬ</h6>
+
     <div id="certificate-text">
         <div class="border-block">
             <h4 title="blue-text">ЕДИНЫЙ РЕЕСТР СПОРТКЛУБОВ</h4>
             <h3 title="text-red">СВИДЕТЕЛЬСТВО</h3>
             <h5 title="blue-text">о внесении сведений</h5><br>
         </div>
+
         <p class="date">
             <span>г. Минск</span>
             <span>25.10.2023</span>
         </p><br>
+
         <h4>Общество с ограниченной ответственностью "Barbie Fitness"</h4>
         <p class="paragraph">ИНН (657489)</p>
         <h4 class="underlined-text">Реестровый номер: 5789</h4>
         <div class="spacer"></div>
+
         <h6 class="date">Шарламова И.К.</h6>
         <h6 class="date">Директор ассоциации "СПОРТПОМОЩЬ"</h6><hr>
+
         <p id="right">
             <span>Ассоциация "Объединение матсеров спорта "СПОРТПОМОЩЬ"</span><br>
             <span>222000 г.Минск, ул. Петруся Броуки, 4а</span><br>
@@ -33,6 +45,5 @@
         </p>
     </div>
 </div>
-
 </body>
 </html>

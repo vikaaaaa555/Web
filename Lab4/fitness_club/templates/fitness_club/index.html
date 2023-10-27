@@ -5,15 +5,32 @@
 {% endblock %}
 
 {% block content %}
+    <style>
+        .grid-container {
+            display: grid;
+            grid-row-gap: 10px;
+            margin: 0 24%;
+        }
+        .grid-item {
+            border-radius: 10px;
+            padding: 20px;
+            border: solid 2px #5A916A;
+            background-color: #903490;
+            box-shadow: 0 0 15px white;
+        }
+    </style>
+
     <div class="features">
-        <h1 style="font-family:'Palatino Linotype', serif">Training</h1>
+        <h1>Training</h1>
         {% if groups %}
+            <div class="grid-container">
             {% for el in groups %}
-                <div class="alert alert-warning">
+                <div class="alert alert-warning grid-item">
                     <h3>{{ el.name }}</h3>
-                    <p>{{ el.description }}</p>
+                    <p id="news-letter">{{ el.description }}</p>
                 </div>
             {% endfor %}
+            </div>
         {% else %}
             <p>Groups not found</p>
         {% endif %}

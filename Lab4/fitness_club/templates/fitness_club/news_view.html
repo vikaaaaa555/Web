@@ -4,8 +4,8 @@
 {% endblock %}
 {% block content %}
     <div class="features">
-    <article class="news">
-        <h1>{{ pushcase.name }}</h1>
+    <article class="new">
+        <h1 class="text-up">{{ pushcase.name }}</h1>
         {% if pushcase.photo %}
             <p><img class='img-article-left thumb' src="{{ pushcase.photo.url }}" alt="{{ pushcase.name }}"></p>
         {% endif %}

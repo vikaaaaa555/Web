@@ -26,6 +26,7 @@ aside > ul > li, a {
     margin-top: 10px;
     transition: transform .4s ease;
     text-decoration: none;
+    cursor: pointer;
 }
 
 main details article p a:hover,
@@ -36,6 +37,7 @@ div h2 a:hover,
 main footer a:hover,
 nav a:hover,
 a:hover{
+
     color: white;
     text-decoration: none;
     transform: scale(1.05);
@@ -70,7 +72,7 @@ aside div header a:focus,
 div h2 a:focus,
 main footer a:focus,
 nav a:focus,
-a:focus{
+a:focus {
     color: palegreen;
 }
 
@@ -81,12 +83,27 @@ main .features {
     margin-left: 350px;
     text-align: center;
     width: 75%;
+    overflow: hidden;
 }
 
-main .features h1 {font-size: 50px}
-main .features p {margin: 20px auto; max-width: 1000px}
+main .features h1 {
+    @import url('https://fonts.cdnfonts.com/css/barbie');
+    font-family: 'Barbie', sans-serif;
+    font-size: 100px;
+    font-kerning: normal;
+}
+main .features p {
+    margin: 20px auto;
+    max-width: 1000px
+}
+
+.alert img {
+    max-width: 100%;
+    height: auto;
+}
 
 .alert-warning {
+    flex: 0 1 calc(30% - 20px);
     padding: 30px;
     font-family: "Palatino Linotype", serif;
     border-color: #5A916A;
@@ -97,8 +114,7 @@ main .features p {margin: 20px auto; max-width: 1000px}
     float: left;
     clear: both;
     width: 600px;
-    margin: 15px 24%;
-    text-align: left;
+    margin: 15px;
 }
 
 .alert-info {
@@ -110,7 +126,6 @@ main .features p {margin: 20px auto; max-width: 1000px}
     color: plum;
     float: left;
     clear: both;
-    width: 600px;
     margin: 15px 20%;
     text-align: left;
     padding: 30px;
@@ -179,11 +194,64 @@ footer {
     margin-bottom: 20px;
 }
 
-.news {
+article[class*="news"],
+dl.news{
+    border-radius: 20px;
     background: #202020;
     padding: 30px;
-    text-align: left;
+    text-align: center;
     font-family: "Palatino Linotype", serif;
+    width: 70%;
+    border: 1px solid #5A916A;
+}
+
+#news-letter:first-letter {
+    color: #5A916A;
+    font-family: "Barbie", serif;
+    font-size: 40px;
+}
+
+.new {
+    position: relative;
+    right: 100px;
+    text-indent: 20px;
+    text-transform: capitalize;
+    line-height: 1.1;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    hyphens: auto;
+    border-radius: 20px;
+    background: #202020;
+    padding: 30px;
+    font-family: "Palatino Linotype", serif;
+    border: 1px solid #5A916A;
+    margin: 100px;
+}
+
+.news[lang="en"]::before {
+    content: '\201C';
+    font-size: 20px;
+}
+
+.news[lang="en"]::after {
+    content: '\201D';
+    font-size: 20px;
+}
+
+p[lang="ru"]::before {
+    content: '\00AB';
+    font-size: 20px;
+}
+
+p[lang="ru"]::after {
+    content: '\00BB';
+    font-size: 20px;
+}
+
+::selection {
+    background: #5A916A;
+    color: white;
 }
 
 div h2 a {
@@ -308,13 +376,13 @@ table {
 }
 
 @media only screen and (max-width: 1300px) {
-    body {
+    aside {
         background-color: palegreen;
     }
 }
 
 @media only screen and (max-height: 500px) {
-    body {
+    aside {
         background-color: hotpink;
     }
 }
@@ -340,6 +408,221 @@ table {
     }
 }
 
-#logo {
+.logo {
     animation: rotateAnimation 5s infinite linear;
+}
+
+#requisites {
+    font-weight: bold;
+}
+
+.news-description {
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    column-count: 2;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    column-gap: 80px;
+}
+
+.vacancy-list {
+    width: 90%;
+}
+
+.vacancy {
+    width: 40%; /* Ширина блока вакансии */
+    float: left;
+    margin-right: 100px; /* Отступ между блоками */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.clear {
+    clear: both;
+}
+
+.coupon-table {
+    width: 70%;
+    margin-left: 400px;
+    border-collapse: collapse;
+}
+
+.coupon-table th, .coupon-table td {
+    border: 1px solid plum;
+    padding: 8px;
+    text-align: left; /* Выравнивание текста в ячейках */
+}
+
+.coupon-table thead {
+    background-color: #5A916A;
+    color: white; /* Цвет текста в заголовке */
+}
+
+.coupon-table caption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.coupon-table tbody tr:nth-child(even) {
+    background-color: #5A916A;
+    color: white; /* Цвет текста в четных строках */
+}
+
+.coupon-table tbody tr:nth-child(odd) {
+    color: plum; /* Цвет текста в нечетных строках */
+}
+
+/* CSS для feedback_form */
+#feedback-form {
+    font-family: Arial, sans-serif; /* Замените на ваш предпочитаемый шрифт */
+}
+
+.form-button {
+    color: white;
+    background-color: #5A916A;
+}
+
+.form-heading, .form-label, .form-input {
+    color: plum;
+}
+
+.form-label {
+    margin-top: 20px;
+    margin-left: 650px;
+    text-align: center;
+    width: 75%;
+}
+
+.form-input[type="submit"] {
+    color: plum;
+    margin-top: 10px;
+    margin-left: 250px;
+    text-align: right;
+    width: 30%;
+}
+
+.form-input:hover, .form-button:hover, .form-input:active, .form-button:active, .form-input:focus, .form-button:focus {
+    color: plum;
+}
+
+/* CSS для feedback_view */
+#feedback-view {
+    font-family: Arial, sans-serif;
+    color: plum;
+    margin-left: 150px;
+}
+
+.login-options a {
+    color: plum;
+}
+
+.login-options a input[type="button"] {
+    margin-top: 10px;
+    margin-left: 350px;
+    text-align: right;
+    width: 75%;
+    color: plum;
+}
+
+/* Добавим стили для состояний hover, active и focus */
+.login-options a:hover input[type="button"], .login-options a:active input[type="button"], .login-options a:focus input[type="button"] {
+    color: #5A916A;
+}
+
+main .features-feedback {
+    float: left;
+    color: plum;
+    margin-top: 40px;
+    margin-left: 130px;
+    text-align: center;
+    width: 75%;
+    overflow: hidden;
+}
+
+#custom-audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: plum; /* Цвет фона */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white; /* Тень */
+}
+
+/* Стили для доступных (активных) элементов формы */
+form input:enabled, form textarea:enabled, form select:enabled {
+    background-color: #e6fade;
+    border: 2px solid green;
+    color: #333;
+    font-family: Arial, sans-serif; /* Пример шрифта для текстовых полей */
+    font-weight: normal;
+}
+
+/* Стили для обязательных элементов формы */
+form input:required, form textarea:required, form select:required {
+    border: 2px solid green;
+    font-family: 'Times New Roman', serif; /* Пример шрифта для обязательных полей */
+    font-weight: bold;
+}
+
+/* Стили для заблокированных элементов формы */
+form input:disabled, form textarea:disabled, form select:disabled {
+    background-color: #eee;
+    color: #999;
+    font-family: 'Courier New', monospace; /* Пример моноширинного шрифта для заблокированных полей */
+    font-weight: normal;
+}
+
+/* Стили для элементов формы с неверными значениями (например, за пределами диапазона) */
+form input:invalid, form textarea:invalid, form select:invalid {
+    border: 2px solid #f00;
+    font-family: Verdana, sans-serif; /* Пример другого шрифта для элементов с неверными значениями */
+    font-weight: normal;
+}
+
+#custom-audio:hover {
+    background-color: #5A916A; /* Цвет фона при наведении */
+}
+
+#list-ex {
+    list-style-type: none;
+    padding: 0;
+}
+
+#list-ex li {
+    padding: 10px;
+}
+
+#list-ex li:first-child {
+    background-color: #f1c40f; /* Цвет для первого элемента */
+}
+
+#list-ex li:last-child {
+    background-color: #3498db; /* Цвет для последнего элемента */
+}
+
+#list-ex li:nth-child(3n) {
+    background-color: #2ecc71; /* Цвет для нечетных элементов */
+}
+
+#unicode {
+    list-style: none;
+}
+
+#unicode li::before {
+    content: "\2765"; /* Символ "•" в Юникоде */
+    color: white; /* Цвет маркера */
+    font-size: 1.5em; /* Размер маркера */
+    margin-right: 5px; /* Расстояние между маркером и текстом */
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+    font-weight: normal;
+    filter: drop-shadow(0px 0px 5px white);
+
 }

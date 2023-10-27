@@ -39,13 +39,13 @@ def luck(request):
     response = requests.get('https://dog.ceo/api/breeds/image/random')
     image_url = response.json()['message']
 
-    response = requests.get('https://cat-fact.herokuapp.com/facts')
-    facts = response.json()
-    random_fact = random.choice(facts)
+    # response = requests.get('https://cat-fact.herokuapp.com/facts')
+    # facts = response.json()
+    # random_fact = random.choice(facts)
 
     context = {
         'image_url': image_url,
-        'random_fact': random_fact
+        #'random_fact': random_fact
     }
     return render(request, 'fitness_club/luck.html', context)
 

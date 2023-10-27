@@ -7,26 +7,29 @@
 
 {% block content %}
     <article class="features">
-        <h1>Fitness Club</h1>
-        <p><img src="{% static 'fitness_club/media/photos/pictures/ad.png' %}" alt="Fitness"></p>
+        <h1>Barbie fitness</h1>
+
+        <p><img class="logo" src="{% static 'fitness_club/media/photos/pictures/ad.png' %}" alt="Fitness"></p>
+
         {% for n in inform %}
             {% if forloop.last %}
             <details>
                 <summary><h2>{{ n.name }}</h2></summary>
-                <article class="news">
-                    <p>
+
+                <article class="new">
+                    <p id="news-letter">
                         {% if n.photo %}
                             <p><img class='img-article-left thumb' src="{{ n.photo.url }}"></p>
                         {% endif %}
-                        {{ n.description }}
+                        <p  id="news-letter">{{ n.description }}</p>
                     </p>
                 </article>
+
             </details>
             {% endif %}
         {% endfor %}
         <footer>
-            <p style="font-family: 'Palatino Linotype', serif"><h3><strong>Our partners</strong></h3></p>
-            <!--p[style="font-family: 'Palatino Linotype', serif"]>h3>strong{Our partners}-->
+            <p><h3><strong>Our partners</strong></h3></p>
             <nav>
                 <a href="https://www.mcdonalds.com/gb/en-gb.html" target="_blank"><img class="round" src="{% static 'fitness_club/media/photos/pictures/mcd.png' %}"></a>
                 <a href="https://www.adidas.co.uk/" target="_blank"><img class="round" src="{% static 'fitness_club/media/photos/pictures/adidas.png' %}"></a>

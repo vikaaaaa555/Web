@@ -8,19 +8,23 @@
 {% block content %}
     <main class="features">
         <h1>News</h1>
+    <div class="news-list">
         {% for n in news %}
         <details>
             <summary><h2>{{ n.name }}</h2></summary>
-            <article class="news">
+            <article lang="en" class="news">
                 <p>
                     {% if n.photo %}
                         <p><img class='img-article-left thumb' src="{{ n.photo.url }}"></p>
                     {% endif %}
-                    {{ n.description }}
+                <p class="news-description">
+                    {{ n.description|slice:":30" }}{% if n.description|length > 30 %}...{% endif %}
+                </p>
                 </p>
                 <p><a href="{{ n.get_absolute_url }}" target="_blank">Read all</a></p>
             </article>
         </details>
         {% endfor %}
+    </div>
     </main>
 {% endblock %}

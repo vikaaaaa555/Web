@@ -10,11 +10,11 @@
         <div style="text-align: center" class="alert alert-info">
             <img src="{{ image_url }}" alt="Such image doesn't exist :(" style="max-width: 500px">
         </div>
-        <div class="alert alert-info">
+{% comment %}        <div class="alert alert-info">
             <h2><i><strong>Fact about cats:</strong></i></h2>
             <h3>{{ random_fact.text }}</h3>
             <h3>Created At: {{ random_fact.createdAt }}</h3>
-        </div>
+        </div>{% endcomment %}
     </div>
 
     <h2>Parallelogram CSS</h2>
@@ -38,9 +38,9 @@
 
         <h3><abbr title="National Basketball Association">NBA</abbr></h3><hr/>
 
-        <blockquote>
-            <p>"I've failed over and over and over again in my life. And that is why I succeed."</p>
-            <footer>— Michael Jordan</footer>
+        <blockquote lang="ru">
+            <p lang="ru">Я терпел неудачу снова и снова в своей жизни. И именно поэтому я добился успеха.</p>
+            <footer>— Майкл Джордан</footer>
         </blockquote><hr/>
 
         <div class="verse">On the track, sprinters burst into a run,
@@ -48,6 +48,26 @@
                             With sweat on their brows and fire in their soul,
                             In the world of sports, they reach their ultimate goal.
         </div><hr/>
+
+        <ul id="list-ex">
+            <li><b>1</b> One </li>
+            <li><b>2</b> Two </li>
+            <li><b>3</b> Three</li>
+            <li><b>4</b> Four</li>
+            <li><b>5</b> Five</li>
+        </ul><hr>
+
+        <ul id="unicode">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+        </ul><hr>
+
+        <label class="checkbox style-d">
+            <input type="checkbox" id="subscribe" name="subscribe" checked/>
+            <div class="checkbox__checkmark"></div>
+            <div class="checkbox__body">a</div>
+        </label>
 
         <label for="pages">Choose a page:</label>
             <select id="pages" name="pages">
