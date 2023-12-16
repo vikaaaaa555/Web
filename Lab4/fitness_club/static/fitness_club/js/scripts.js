@@ -74,22 +74,24 @@ if (leftEffect && rightEffect && text && moon) {
 
 
 //4
-const parallax = document.getElementById("parallax");
-const walk = {x: 100, y: 50};
+document.addEventListener("DOMContentLoaded", function () {
+    const parallax = document.getElementById("parallax");
+    const walk = {x: 100, y: 50};
 
-if (parallax) {
-    parallax.addEventListener("mousemove", function (e) {
-        const width = parallax.offsetWidth;
-        const height = parallax.offsetHeight;
+    if (parallax) {
+        parallax.addEventListener("mousemove", function (e) {
+            const width = parallax.offsetWidth;
+            const height = parallax.offsetHeight;
 
-        let {offsetX: x, offsetY: y} = e;
+            let {offsetX: x, offsetY: y} = e;
 
-        const xWalk = Math.round((e.x / width / 2 * walk.x) - (walk.x / 2));
-        const yWalk = Math.round((e.y / height / 2  * walk.y) - (walk.y / 2));
+            const xWalk = Math.round((e.x / width / 2 * walk.x) - (walk.x / 2));
+            const yWalk = Math.round((e.y / height / 2  * walk.y) - (walk.y / 2));
 
-        parallax.style.transform = `rotateY(${-xWalk}deg) rotateX(${yWalk}deg)`;
-    });
-}
+            parallax.style.transform = `rotateY(${-xWalk}deg) rotateX(${yWalk}deg)`;
+        });
+    }
+});
 
 
 //5
@@ -115,34 +117,6 @@ if (backgroundColorInput) {
         document.body.style.backgroundColor = backgroundColor;
     });
 }
-
-
-// 6
-const enterButton = document.getElementById("enterButton");
-if (enterButton) {
-    enterButton.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const kostyl = document.getElementById("kostyl");
-
-        const priceInput = document.getElementById("priceInput");
-        const discountInput = document.getElementById("discountInput");
-        const result = document.getElementById("result");
-
-        const price = priceInput.value;
-        const discount = discountInput.value;
-        var k = parseInt(kostyl.innerText);
-        k += parseInt(discount);
-
-        if (price <= 0 || discount < 0 || discount > 100) {
-            result.innerText = "Invalid Data!"
-        } else {
-            var general = price - price * (discount / 100);
-            result.innerText = `Generally, ${Math.round(general * 100) / 100}\$\nCount = ${k}`;
-        }
-    });
-}
-
 
 // 7
 const ageCalculator = document.getElementById("ageCalculator")
@@ -188,47 +162,48 @@ if (ageCalculator) {
 
 
 // 8
-function startCountdown() {
-    const currentTime = new Date().getTime();
+document.addEventListener("DOMContentLoaded", function () {
+    function startCountdown() {
+        const currentTime = new Date().getTime();
 
-    if (sessionStorage.getItem("countdownStartTime")) {
-        const startTime = parseInt(sessionStorage.getItem("countdownStartTime"), 10);
-        const elapsedTime = currentTime - startTime;
-        const remainingTime = 60 * 60 * 1000 - elapsedTime;
-        displayTime(remainingTime);
-    } else {
-        sessionStorage.setItem("countdownStartTime", currentTime.toString());
-        displayTime(60 * 60 * 1000);
-    }
-}
-function displayTime(remainingTime) {
-    const element = document.getElementById("countdown");
-    if (!element) {
-        return;
-    }
-
-    if (remainingTime <= 0) {
-        document.getElementById("countdown").innerText = "00:00 -_-";
-        return;
-    }
-
-    const minutes = Math.floor(remainingTime / 60000);
-    const seconds = Math.floor((remainingTime % 60000) / 1000);
-
-    if (element) {
-        if (seconds < 10) {
-            element.innerText = `${minutes}:0${seconds}`;
+        if (sessionStorage.getItem("countdownStartTime")) {
+            const startTime = parseInt(sessionStorage.getItem("countdownStartTime"), 10);
+            const elapsedTime = currentTime - startTime;
+            const remainingTime = 60 * 60 * 1000 - elapsedTime;
+            displayTime(remainingTime);
         } else {
-            element.innerText = `${minutes}:${seconds}`;
+            sessionStorage.setItem("countdownStartTime", currentTime.toString());
+            displayTime(60 * 60 * 1000);
         }
     }
+    function displayTime(remainingTime) {
+        const element = document.getElementById("countdown");
+        if (!element) {
+            return;
+        }
 
-    if (remainingTime > 0) {
-        setTimeout(() => displayTime(remainingTime - 1000), 1000);
+        if (remainingTime <= 0) {
+            document.getElementById("countdown").innerText = "00:00 -_-";
+            return;
+        }
+
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+
+        if (element) {
+            if (seconds < 10) {
+                element.innerText = `${minutes}:0${seconds}`;
+            } else {
+                element.innerText = `${minutes}:${seconds}`;
+            }
+        }
+
+        if (remainingTime > 0) {
+            setTimeout(() => displayTime(remainingTime - 1000), 1000);
+        }
     }
-}
-startCountdown();
-
+    startCountdown();
+});
 
 // 9
 const generateTableButton = document.getElementById("generateTable");
@@ -372,7 +347,6 @@ if (classFunctionActivator) {
         console.clear();
 
         functionalInheritance();
-        classInheritance();
     });
 }
 function functionalInheritance() {
@@ -384,116 +358,55 @@ function functionalInheritance() {
       };
     }
 
-    function Animal(name, age) {
+    function Exercise(name, type) {
         this.name = name;
-        this.age = age;
+        this.type = type;
     }
-    Animal.prototype.getName = function() {
+    Exercise.prototype.getName = function() {
         return this.name;
     };
-    Animal.prototype.setName = function(name) {
+    Exercise.prototype.setName = function(name) {
         this.name = name;
     };
-    Animal.prototype.getAge = function() {
-        return this.age;
+    Exercise.prototype.getType = function() {
+        return this.type;
     };
-    Animal.prototype.setAge = function(age) {
-        this.age = age;
+    Exercise.prototype.setType = function(type) {
+        this.type = type;
     };
-    Animal.prototype.getDetails = withTimestamp(function() {
-        return `Name: ${this.name}, Age: ${this.age}`;
+    Exercise.prototype.getDetails = withTimestamp(function() {
+        return `Name: ${this.name}, Type: ${this.type}`;
     });
 
-    function Dog(name, age, breed) {
-        Animal.call(this, name, age);
-        this.breed = breed;
+    function Acrobatic(name, type, coach) {
+        Exercise.call(this, name, type);
+        this.coach = coach;
 
-        this.getBreed = function () {
-            return this.breed;
+        this.getCoach = function () {
+            return this.coach;
         }
-        this.setBreed = function (breed) {
-            this.breed = breed;
+        this.setCoach = function (coach) {
+            this.coach = coach;
         }
     }
-    Dog.prototype = Object.create(Animal.prototype);
-    Dog.prototype.bark = function() {
+    Acrobatic.prototype = Object.create(Exercise.prototype);
+    Acrobatic.prototype.bark = function() {
         return `${this.name} barks!`;
     };
-    Dog.prototype.getDetails = function() {
-        const animalDetails = Animal.prototype.getDetails.call(this);
-        return `${animalDetails}, Breed: ${this.getBreed()}`;
+    Acrobatic.prototype.getDetails = function() {
+        const exerciseDetails = Exercise.prototype.getDetails.call(this);
+        return `${exerciseDetails}, Coach: ${this.getCoach()}`;
     };
 
-    const myAnimal = new Animal("Rover", 5);
-    const myDog = new Dog("Buddy", 3, "Golden Retriever");
+    const myExercise = new Exercise("Jumping", "Group");
+    const myAcrobatic = new Acrobatic("Pilates", "Individual", "Edward Kallen");
 
-    console.log(myDog.getName());
-    myDog.setName("Badass");
-    console.log(myDog.getName());
-    console.log(myAnimal.getDetails());
-    console.log(myDog.getDetails());
-    console.log(myDog.bark());
-}
-function classInheritance() {
-    function withTimestamp(fn) {
-      return function() {
-        const timestamp = new Date().toLocaleString();
-        const result = fn.apply(this, arguments);
-        return `${timestamp}: ${result}`;
-      };
-    }
-
-    class Animal {
-        constructor(name, age) {
-            this.name = name;
-            this.age = age;
-        }
-        getName() {
-            return this.name;
-        }
-        setName(name) {
-            this.name = name;
-        }
-        getAge() {
-            return this.age;
-        }
-        setAge(age) {
-            this.age = age;
-        }
-        getDetails = withTimestamp(() => {
-            return `Name: ${this.name}, Age: ${this.age}`;
-        });
-    }
-
-    class Dog extends Animal {
-        constructor(name, age, breed) {
-            super(name, age);
-            this.breed = breed;
-        }
-        getBreed() {
-            return this.breed;
-        }
-        setBreed(breed) {
-            this.breed = breed;
-        }
-        bark() {
-            return `${this.name} barks!`;
-        }
-        getDetails() {
-            const animalDetails = super.getDetails();
-            return `${animalDetails}, Breed: ${this.getBreed()}`;
-        }
-    }
-
-    const myAnimal = new Animal("Rover", 5);
-    const myDog = new Dog("Buddy", 3, "Golden Retriever");
-
-    console.log(myDog.getName());
-    myDog.setName("Badass");
-    console.log(myDog.getName());
-    console.log(myAnimal.getDetails());
-    console.log(myDog.getDetails());
-    console.log(myDog.bark());
+    console.log(myAcrobatic.getName());
+    myAcrobatic.setName("Pilates");
+    console.log(myAcrobatic.getName());
+    console.log(myExercise.getDetails());
+    console.log(myAcrobatic.getDetails());
+    console.log(myAcrobatic.bark());
 }
 
 
