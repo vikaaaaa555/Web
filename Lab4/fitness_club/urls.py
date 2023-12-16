@@ -33,6 +33,7 @@ urlpatterns = [
     path('js/interactive_table', views.interactive, name='interactive_table'),
     path('js/calculator', views.calculate, name='calculator'),
     path('js/text_change', views.text_change, name='text_change'),
+    path('js/age_calculator', views.age, name='age_calculator'),
 ]
 
 if settings.DEBUG:

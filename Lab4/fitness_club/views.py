@@ -207,3 +207,7 @@ def calculate(request):
 
 def text_change(request):
     return render(request, 'fitness_club/js/text_change.html')
+
+
+def age(request):
+    return render(request, 'fitness_club/js/age_calculator.html')
