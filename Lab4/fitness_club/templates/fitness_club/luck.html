@@ -5,17 +5,19 @@
 {% endblock %}
 
 {% block content %}
+{% comment %}
     <div class="features">
         <h1>Have a good day!</h1>
         <div style="text-align: center" class="alert alert-info">
             <img src="{{ image_url }}" alt="Such image doesn't exist :(" style="max-width: 500px">
         </div>
-{% comment %}        <div class="alert alert-info">
+        <div class="alert alert-info">
             <h2><i><strong>Fact about cats:</strong></i></h2>
             <h3>{{ random_fact.text }}</h3>
             <h3>Created At: {{ random_fact.createdAt }}</h3>
-        </div>{% endcomment %}
+        </div>
     </div>
+{% endcomment %}
 
     <h2>Parallelogram CSS</h2>
     <div class="parallelogram"></div>
@@ -34,7 +36,8 @@
             </pre>
         </code><hr/>
 
-        <h3>The current date and time is: {% now "Y-m-d H:i:s" %}</h3><hr/>
+        <h3>The current date and time is: <span id="time-display"></span> </h3><hr/>
+        <h3>Time count: <span id="countdown"></span> </h3><hr>
 
         <h3><abbr title="National Basketball Association">NBA</abbr></h3><hr/>
 

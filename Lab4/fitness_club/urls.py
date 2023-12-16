@@ -27,6 +27,12 @@ urlpatterns = [
     path('feedback_view/', FeedbackView.as_view(), name='feedback_view'),
     path('feedback_form/', FeedbackForm.as_view(), name='feedback_form'),
     path('certificate/', views.certificate, name='certificate'),
+    path('js/scroll/', views.scroll, name='scroll'),
+    path('js/autoplay/', views.autoplay, name='autoplay'),
+    path('js/associative_array', views.array, name='associative_array'),
+    path('js/interactive_table', views.interactive, name='interactive_table'),
+    path('js/calculator', views.calculate, name='calculator'),
+    path('js/text_change', views.text_change, name='text_change'),
 ]
 
 if settings.DEBUG:

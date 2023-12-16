@@ -8,21 +8,21 @@
     <div class="features">
         <article id="instr"><h1>Instructors</h1></article>
         <div class="news-list">
-        {% if instructor %}
-            {% for el in instructor %}
-                <div class="alert alert-warning">
-                    <h2>{{ el.name }}</h2>
-                    <h4>{{ el.specialization }}</h4>
-                    <h4>{{ el.phone_number }}</h4>
-                    <h4>{{ el.email }}</h4>
-                    {% if el.photo %}
-                        <p><img class='img-article-left thumb' src="{{ el.photo.url }}"></p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Specialization not found</p>
-        {% endif %}
+            {% if instructor %}
+                {% for el in instructor %}
+                    <div id="parallax" class="alert alert-warning">
+                        <h2>{{ el.name }}</h2>
+                        <h4>{{ el.specialization }}</h4>
+                        <h4>{{ el.phone_number }}</h4>
+                        <h4>{{ el.email }}</h4>
+                        {% if el.photo %}
+                            <p><img class='img-article-left thumb' src="{{ el.photo.url }}"></p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Specialization not found</p>
+            {% endif %}
         </div>
         <a href="#instr">To begin</a><br>
     </div>

@@ -9,7 +9,7 @@
     <main class="features">
         <h1>About Us</h1>
 
-        <p><img class="logo" src="{% static 'fitness_club/media/photos/pictures/barbie1.png' %}"></p>
+        <p><img class="logo scroll-animation" src="{% static 'fitness_club/media/photos/pictures/barbie1.png' %}"></p>
 
         <article class="news">
             At the Barbie Fitness, we are dedicated to helping you achieve your health and fitness goals.<br>
@@ -45,6 +45,9 @@
         <p>Visit us!: Minsk, Petrusia Brouki Street, 4A </p>
         <p id="requisites">For all inquiries, please call the number: +375(29)000-00-00</p>
         <p><a href="{% url 'certificate' %}" target="_blank">Certificate of quality of services</a></p>
+        <span style="color: white; font-size: 12px;" id="countdown">
+                    XX:XX
+        </span>
     </footer>
     </main>
 {% endblock %}

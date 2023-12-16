@@ -180,7 +180,30 @@ def news_view(request, news_id):
     }
     return render(request, 'fitness_club/news_view.html', context)
 
+
 def certificate(request):
     return render(request, 'fitness_club/certificate.html')
 
 
+def scroll(request):
+    return render(request, 'fitness_club/js/scroll.html')
+
+
+def autoplay(request):
+    return render(request, 'fitness_club/js/autoplay.html')
+
+
+def array(request):
+    return render(request, 'fitness_club/js/associative_array.html')
+
+
+def interactive(request):
+    return render(request, 'fitness_club/js/interactive_table.html')
+
+
+def calculate(request):
+    return render(request, 'fitness_club/js/calculator.html')
+
+
+def text_change(request):
+    return render(request, 'fitness_club/js/text_change.html')
